@@ -63,19 +63,12 @@ public class PersonnelConsole
 		return new Option("Quitter sans enregistrer", "a", Action.QUIT);
 	}
 	
-	private boolean verifiePassword()
+	public boolean verifiePassword()
 	{
 		boolean ok = gestionPersonnel.getRoot().checkPassword(getString("password : "));
 		if (!ok)
 			System.out.println("Password incorrect.");
 		return ok;
 	}
-	
-	public static void main(String[] args)
-	{
-		PersonnelConsole personnelConsole = 
-				new PersonnelConsole(GestionPersonnel.getGestionPersonnel());
-		if (personnelConsole.verifiePassword())
-			personnelConsole.start();
-	}
+
 }

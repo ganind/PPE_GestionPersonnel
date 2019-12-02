@@ -1,5 +1,6 @@
-package testsUnitaires;
+/*package testsUnitaires;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -22,4 +23,4 @@ class testLigue
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
 	}
-}
+} */

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="commandLineMenus">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/commandLineMenus.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/commandLineMenus.jar!/doc" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
