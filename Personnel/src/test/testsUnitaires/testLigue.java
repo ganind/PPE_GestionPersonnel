@@ -1,4 +1,4 @@
-/*package testsUnitaires;
+package testsUnitaires;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,17 +10,17 @@ import personnel.*;
 class testLigue 
 {
 	@Test
-	void createLigue() 
+	void createLigue()
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		assertEquals("Fléchettes", ligue.getNom());
 	}
 
 	@Test
-	void addEmploye() 
+	void addEmploye()
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty");
 		assertEquals(employe, ligue.getEmployes().first());
 	}
-} */
+}
