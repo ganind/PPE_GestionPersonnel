@@ -2,6 +2,9 @@ package personnel;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.text.DateFormat;
+import java.util.Locale;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -15,20 +18,25 @@ public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
-	private Date dateArrive, dateDepart;
 	private Ligue ligue;
+	private GestionPersonnel gestionPersonnel;
+	private Date dateArrive, dateDepart;
+
 	
-	Employe(Ligue ligue, String nom, String prenom, String mail, String password)
+	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, Date dateArrive, Date dateDepart)
 	{
+		this.gestionPersonnel = gestionPersonnel;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.password = password;
 		this.mail = mail;
 		this.ligue = ligue;
+		this.dateArrive = dateArrive;
+		this.dateDepart = dateDepart;
 	}
 	
 	/**
-	 * Retourne vrai ssi l'employé est administrateur de la ligue 
+	 * Retourne vrai ssi l'employé est administrateur de la ligue
 	 * passée en paramètre.
 	 * @return vrai ssi l'employé est administrateur de la ligue 
 	 * passée en paramètre.
@@ -144,6 +152,52 @@ public class Employe implements Serializable, Comparable<Employe>
 	public Ligue getLigue()
 	{
 		return ligue;
+	}
+
+	/**
+	 * Retourne la date d'arrivé de l'employé
+	 * @return la date d'arrivé de l'employé
+	 */
+
+
+	public Date getDateArrive() {
+		return dateArrive;
+	}
+
+	/**
+	 * Retourne la date de départ de l'employé
+	 * @return la date de départ de l'employé
+	 */
+
+	public Date getDateDepart() {
+		return dateDepart;
+	}
+
+	/**
+	 * Change la date de départ de l'employé
+	 * @return la date de départ de l'employé
+	 */
+
+	public Date setDateDepart(Date dateDepart) {
+		return dateDepart;
+	}
+
+	/**
+	 * Traitement de la date de départ de l'employé Date -> String
+	 * @return la date de départ de l'employé
+	 */
+
+	public String setDateDepart(String dateDepart) {
+		return dateDepart;
+	}
+
+	/**
+	 * Gets the date formatter with the given formatting style for the given locale.
+	 * @return a date formatter
+	 */
+
+	public static void getDateInstance(int SHORT, Locale FRANCE) {
+		DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.FRANCE);
 	}
 
 	/**

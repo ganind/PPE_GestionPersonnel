@@ -2,6 +2,7 @@ package personnel;
 
 import java.io.Serializable;
 import java.util.Collections;
+import java.util.Date;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -16,21 +17,29 @@ import java.util.TreeSet;
 public class Ligue implements Serializable, Comparable<Ligue>
 {
 	private static final long serialVersionUID = 1L;
+	private int id = -1;
 	private String nom;
 	private SortedSet<Employe> employes;
 	private Employe administrateur;
+	private GestionPersonnel gestionPersonnel;
 	
 	/**
 	 * Crée une ligue.
 	 * @param nom le nom de la ligue.
 	 */
-	
-	public Ligue(String nom)
+
+	Ligue(GestionPersonnel gestionPersonnel, String nom) throws SauvegardeImpossible
+	{
+		this(gestionPersonnel, -1, nom);
+		this.id = gestionPersonnel.insert(this);
+	}
+
+	Ligue(GestionPersonnel gestionPersonnel, int id, String nom)
 	{
 		this.nom = nom;
 		employes = new TreeSet<>();
-		administrateur = GestionPersonnel.getGestionPersonnel().getRoot();
-		GestionPersonnel.getGestionPersonnel().add(this);
+		administrateur = gestionPersonnel.getRoot();
+		this.id = id;
 	}
 
 	/**
@@ -101,7 +110,9 @@ public class Ligue implements Serializable, Comparable<Ligue>
 
 	public Employe addEmploye(String nom, String prenom, String mail, String password)
 	{
-		Employe employe = new Employe(this, nom, prenom, mail, password);
+		Date dateArrive = null;
+		Date dateDepart =null;
+		Employe employe = new Employe(this.gestionPersonnel, this, nom, prenom, mail, password, dateArrive, dateDepart);
 		employes.add(employe);
 		return employe;
 	}
