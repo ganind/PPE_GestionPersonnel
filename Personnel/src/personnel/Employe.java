@@ -1,6 +1,7 @@
 package personnel;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -14,6 +15,7 @@ public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
+	private Date dateArrive, dateDepart;
 	private Ligue ligue;
 	
 	Employe(Ligue ligue, String nom, String prenom, String mail, String password)

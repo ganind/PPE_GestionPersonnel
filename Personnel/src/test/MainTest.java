@@ -1,4 +1,4 @@
-/*import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
 import personnel.Employe;
 import personnel.Ligue;
 
@@ -11,7 +11,7 @@ class MainTest {
     void createLigue()
 {
     Ligue ligue = new Ligue("Fléchettes");
-    assertEquals("Fléchettes", ligue.getNom());
+    assertEquals("Fléchettes", ligue.getNom()); //function propre aux tests unitaires
 }
 
     @Test
@@ -22,4 +22,4 @@ class MainTest {
         assertEquals(employe, ligue.getEmployes().first());
     }
 
-}*/
+}
