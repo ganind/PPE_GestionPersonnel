@@ -2,7 +2,7 @@ package personnel;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Locale;
 
@@ -17,13 +17,12 @@ import java.util.Locale;
 public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
-	private String nom, prenom, password, mail;
+	private String nom, prenom, password, mail, dateArrive, dateDepart;
 	private Ligue ligue;
 	private GestionPersonnel gestionPersonnel;
-	private Date dateArrive, dateDepart;
 
 	
-	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, Date dateArrive, Date dateDepart)
+	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, String dateArrive, String dateDepart)
 	{
 		this.gestionPersonnel = gestionPersonnel;
 		this.nom = nom;
@@ -158,18 +157,23 @@ public class Employe implements Serializable, Comparable<Employe>
 	 * Retourne la date d'arrivé de l'employé
 	 * @return la date d'arrivé de l'employé
 	 */
-
-
-	public Date getDateArrive() {
+	public String getDateArrive() {
 		return dateArrive;
 	}
 
 	/**
-	 * Retourne la date de départ de l'employé
+	 * Change la date d'arrivée de l'employé
+	 * @return la date d'arrivée de l'employé
+	 */
+	public String setDateArrive() {
+		return dateArrive;
+	}
+
+	/**
+	 * Change la date de départ de l'employé
 	 * @return la date de départ de l'employé
 	 */
-
-	public Date getDateDepart() {
+	public String getDateDepart() {
 		return dateDepart;
 	}
 
@@ -177,16 +181,6 @@ public class Employe implements Serializable, Comparable<Employe>
 	 * Change la date de départ de l'employé
 	 * @return la date de départ de l'employé
 	 */
-
-	public Date setDateDepart(Date dateDepart) {
-		return dateDepart;
-	}
-
-	/**
-	 * Traitement de la date de départ de l'employé Date -> String
-	 * @return la date de départ de l'employé
-	 */
-
 	public String setDateDepart(String dateDepart) {
 		return dateDepart;
 	}
@@ -230,7 +224,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	@Override
 	public String toString()
 	{
-		String res = nom + " " + prenom + " " + mail + " (";
+		String res = nom + " " + prenom + " " + mail + " " + dateArrive + " " + dateDepart + " " + " (";
 		if (estRoot())
 			res += "super-utilisateur";
 		else

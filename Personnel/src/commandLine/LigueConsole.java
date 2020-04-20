@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import commandLineMenus.List;
 import commandLineMenus.Menu;
 import commandLineMenus.Option;
+import java.util.Date;
 
 import personnel.*;
 
@@ -62,7 +63,7 @@ public class LigueConsole
 			}
 			catch(SauvegardeImpossible exception)
 			{
-				System.err.println("Impossible de sauvefarder cette ligue");
+				System.err.println("Impossible de sauvegarder cette ligue");
 			}
 		});
 	}
@@ -95,12 +96,14 @@ public class LigueConsole
 	
 	private Option ajouterEmploye(final Ligue ligue)
 	{
-		return new Option("ajouter un employé", "a",
+		return new Option("Ajouter un employé", "a",
 				() -> 
 				{
 					ligue.addEmploye(getString("nom : "), 
 						getString("prenom : "), getString("mail : "), 
-						getString("password : "));
+						getString("password : "),
+							getString("Date d'arrivée (jj-mm-aaaa) : "),
+							getString("Date de depart (jj-mm-aaaa) : "));
 				}
 		);
 	}

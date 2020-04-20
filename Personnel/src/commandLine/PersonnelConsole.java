@@ -42,7 +42,7 @@ public class PersonnelConsole
 	
 	private Option quitterEtEnregistrer()
 	{
-		return new Option("Quitter et enregistrer", "q", 
+		return new Option("Quitter et Enregistrer", "q",
 				() -> 
 				{
 					try

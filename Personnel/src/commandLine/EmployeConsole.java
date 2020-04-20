@@ -53,7 +53,7 @@ public class EmployeConsole
 
 	private Option changerDateDepart(final Employe employe)
 	{
-		return new Option("Changer la date de départ", "y", () -> {employe.setDateDepart(getString("Date de départ : "));});
+		return new Option("Changer la date de départ", "y", () -> {employe.setDateDepart(getString("Date de départ (jj-mm-aaaa) : "));});
 	}
 
 
